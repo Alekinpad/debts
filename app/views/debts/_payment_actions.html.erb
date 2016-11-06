@@ -1,0 +1,19 @@
+<h2>Agregar pago</h2>
+<%= form_for [@debt, Payment.new]  do |f| %>
+  <%= f.label :amount, class: "control-label" %>
+  <%= f.text_field :amount, class: "form-control" %>
+
+  <%= f.submit "Crear pago", class: "btn btn-primary" %>
+<% end %>
+
+<h2>Pagos realizados</h2>
+
+<% @debt.payments.each do |payment| %>
+  <p>
+    Pago: <%= payment.amount %> |
+    <%= link_to 'Borrar pago',
+          debt_payment_path(@debt, payment),
+          class: "btn btn-primary",
+          method: :delete %>
+  </p>
+<% end %>

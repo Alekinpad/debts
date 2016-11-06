@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @debt.description %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @debt.amount %>
+</p>
+<p>
+  <strong>Payed amount:</strong>
+  <%= @debt.payed_amount %>
+</p>
+<p>
+  <strong>Pending amount:</strong>
+  <%= @debt.pending_amount %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @debt.status %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @debt.categories.map(&:name).join(', ') %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @debt.user %>
+</p>
+
+<%= render 'payment_actions'%>
+
+<%= link_to 'Edit', edit_debt_path(@debt) %> |
+<%= link_to 'Back', debts_path %>
