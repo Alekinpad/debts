@@ -9,7 +9,7 @@ class Debt < ApplicationRecord
   validate :check_exceed_payments
 
   def payed_amount
-    payments.map(&:amount).sum
+    payments.collect(&:amount).sum
   end
 
   def pending_amount
@@ -30,8 +30,6 @@ class Debt < ApplicationRecord
     # Si el monto total excede el monto de la deuda, no guardar
     if payed_amount > amount
       errors.add(:payed_amount, "Excede el valor de la deuda")
-
-      false
     end
   end
 end
