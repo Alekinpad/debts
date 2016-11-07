@@ -33,12 +33,10 @@ ActiveRecord::Schema.define(version: 20161106192056) do
   create_table "debts", force: :cascade do |t|
     t.string   "description"
     t.integer  "amount"
-    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.string   "status"
-    t.index ["category_id"], name: "index_debts_on_category_id", using: :btree
     t.index ["user_id"], name: "index_debts_on_user_id", using: :btree
   end
 
@@ -59,7 +57,6 @@ ActiveRecord::Schema.define(version: 20161106192056) do
 
   add_foreign_key "categorizations", "categories"
   add_foreign_key "categorizations", "debts"
-  add_foreign_key "debts", "categories"
   add_foreign_key "debts", "users"
   add_foreign_key "payments", "debts"
 end
