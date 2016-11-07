@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'debts#index'
+  
   resources :users
   resources :categories
 

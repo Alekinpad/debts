@@ -18,7 +18,7 @@
       <tr>
         <td><%= debt.description %></td>
         <td><%= debt.amount %></td>
-        <td><%= debt.category %></td>
+        <td><%= debt.categories.map(&:name).join(', ') %></td>
         <td><%= debt.user.name %></td>
         <td><%= link_to 'Show', debt %></td>
         <td><%= link_to 'Edit', edit_debt_path(debt) %></td>
