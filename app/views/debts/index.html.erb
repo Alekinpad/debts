@@ -7,6 +7,8 @@
     <tr>
       <th>Description</th>
       <th>Amount</th>
+      <th>Pending amount</th>
+      <th>Payed amount</th>
       <th>Category</th>
       <th>User</th>
       <th colspan="3"></th>
@@ -18,6 +20,8 @@
       <tr>
         <td><%= debt.description %></td>
         <td><%= debt.amount %></td>
+        <td><%= debt.pending_amount %></td>
+        <td><%= debt.payed_amount %></td>
         <td><%= debt.categories.map(&:name).join(', ') %></td>
         <td><%= debt.user.name %></td>
         <td><%= link_to 'Show', debt %></td>
